@@ -1,3 +1,7 @@
+const User=require("../models/user")
+const bcrypt=require("bcrypt")
+
+
 module.exports.home=(req,res)=>{
     return res.render('home',{title:"Home || Upload X"}) 
 }
@@ -6,7 +10,7 @@ exports.signin=(req,res)=>{
 }
 
 exports.signup=(req,res)=>{
-    return res.render('signup',{title:"Signup || Upload X"})
+    return res.render('sign-up',{title:"Signup || Upload X"})
 }
 exports.create =async function(req, res){
     console.log(req.body)
@@ -47,7 +51,7 @@ exports.create =async function(req, res){
     
 
 // Sign-in Functionality
-exports.createSession =async  function(req, res){
+exports.createSession =  function(req, res){
     console.log(req.body)
     req.flash('success', 'Logged in Successfully');
     return res.redirect('/');

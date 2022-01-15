@@ -2,6 +2,7 @@ const express=require('express')
 require('dotenv').config()
 const port=process.env.PORT
 const path=require('path')
+const db=require("./config/mongoose")
 const app=express()
 
 app.set('view engine','ejs')
