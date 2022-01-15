@@ -4,11 +4,38 @@ const port=process.env.PORT
 const path=require('path')
 const db=require("./config/mongoose")
 const app=express()
-
+const passport=require('passport')
+const session=require('express-session')
+const passportLocal=require("./config/passport")
 app.set('view engine','ejs')
 app.set('views',path.join(__dirname ,'./views'))
 
+pp.use(express.urlencoded({extended:true}))
+app.use(expressLayouts);
+app.use(session({
+    secret:process.env.SESSION_COOKIE,
+    resave:false,
+    saveUninitialized:true,
+    cookie:{ maxAge: (1000 * 60 * 100)},
+    store:new MongoStore({
+        mongooseConnection:db,
+        autoRemove: 'disabled',
+    },
+    function(err){
+        console.log(err ||  'connect-mongodb setup ok');
+    }
+    )
+}))
 
+// For using CSS and JS 
+app.use(express.static('./assets'))
+
+app.set('layout extractStyles', true);
+app.set('layout extractScripts', true);
+// For authentication passport
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(passport.setAuthenticatedUser);
 
 
 
