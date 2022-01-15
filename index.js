@@ -11,6 +11,7 @@ const MongoStore=require('connect-mongo')(session)
 const expressLayouts = require('express-ejs-layouts');
 const flash = require('connect-flash');
 const customMware = require('./config/middleware');
+const passportGoogle=require("./config/passport_google-oauth")
 app.set('view engine','ejs')
 app.set('views',path.join(__dirname ,'./views'))
 
