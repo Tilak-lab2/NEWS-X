@@ -5,14 +5,14 @@ const bcrypt=require("bcrypt")
 module.exports.home=(req,res)=>{
     return res.render('home',{title:"Home || Upload X"}) 
 }
-exports.signin=(req,res)=>{
-    return res.render('sign-in ',{title:"Sign-in || Upload X"})
+module.exports.signin=(req,res)=>{
+    return res.render('signin',{title:"Sign-in || Upload X"})
 }
 
 exports.signup=(req,res)=>{
-    return res.render('sign-up',{title:"Signup || Upload X"})
+    return res.render('signup',{title:"Signup || Upload X"})
 }
-exports.create =async function(req, res){
+exports.create =function(req, res){
     console.log(req.body)
  
     try{
