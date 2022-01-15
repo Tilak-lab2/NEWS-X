@@ -57,6 +57,7 @@ exports.createSession =  function(req, res){
     return res.redirect('/');
    
 }
+// Sign-out
 exports.signout=(req,res)=>{
     req.logout()
     req.flash("success","You are Logged Out")
