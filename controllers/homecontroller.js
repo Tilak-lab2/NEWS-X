@@ -63,3 +63,10 @@ exports.signout=(req,res)=>{
     req.flash("success","You are Logged Out")
     res.redirect("/")
 }
+// Profile 
+exports.profile=(req,res)=>{
+    req.flash('success','welcome')
+    return res.render('profile',{title:"Profile || Upload X"})
+}
+
+
