@@ -51,6 +51,7 @@ app.use(customMware.setFlash);
 
 app.use(express.urlencoded({extended:false}))
 app.use("/",require("./routes/app"))
+app.use("/news",require("./routes/index"))
 app.listen(port,()=>{
     console.log(`Running on localhost${port}`)
 })

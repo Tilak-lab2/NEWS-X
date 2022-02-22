@@ -1,6 +1,6 @@
 const User=require("../models/user")
 const bcrypt=require("bcrypt")
-
+const Joi=require('joi')
 
 module.exports.home=(req,res)=>{
     return res.render('home',{title:"Home || Upload X"}) 
@@ -14,14 +14,11 @@ exports.signup=(req,res)=>{
 }
 exports.create =function(req, res){
     console.log(req.body)
- 
     try{
-      if(req.body.password!=req.body.confirm_password){
-        req.flash('error', 'Passwords do not match');
-        return res.redirect('back');
-      }
-      else{
-          
+        const schema=Joi.object({
+            name:Joi.string().min(3).max(15).required()
+        })
+
         const newUser = new User({
             name:req.body.name,
             email: req.body.email,
@@ -40,7 +37,7 @@ exports.create =function(req, res){
     
          
       }
-      }
+     
       catch(err){
           
       console.log("error")
