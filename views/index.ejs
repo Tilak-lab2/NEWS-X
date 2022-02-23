@@ -30,10 +30,12 @@
                 for (var i=0 ; i<news.length ; i++){ %>
                     <div class="card mx-3" style="width: 18rem;margin-top:20px;">
                         <img src="<%= news[i].urlToImage%>" class="card-img-top" alt="<%= news[i].title%>">
+                        <span class="badge badge-primary"><%=news[i].author%></span>
                         <div class="card-body">
                             <h5 class="card-title"><%= news[i].title%></h5>
                             <p class="card-text"><%= news[i].description%></p>
                             <a target="_blank" href="<%= news[i].url%>" class="btn btn-outline-primary"> Read Article</a>
+                            <%=news[i].publishedAt%>
                         </div>
                     </div>
             <%}}else{%>

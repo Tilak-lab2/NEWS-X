@@ -1,6 +1,6 @@
 const User=require("../models/user")
 const bcrypt=require("bcrypt")
-const Joi=require('@hapi/joi')
+const Joi=require('joi')
 
 module.exports.home=(req,res)=>{
     return res.render('home',{title:"Home || Upload X"}) 

@@ -59,7 +59,7 @@ exports.all=async(req,res)=>{
 exports.international=async(req,res)=>{
 	try{
 		var data=""
-		var url='https://newsapi.org/v2/top-headlines?q=us&language=en&apiKey=86584eae3c3b4f6e899af4d4be08ce4e';
+		var url='https://newsapi.org/v2/top-headlines?country=us&language=en&apiKey=86584eae3c3b4f6e899af4d4be08ce4e';
 		var news =await axios.get(url).then((response)=>{
 				console.log(response.status);
 				data = response.data;

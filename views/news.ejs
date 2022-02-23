@@ -14,9 +14,10 @@
                     <div class="card mx-3" style="width: 18rem;margin-top:20px;">
                         <img src="<%= news[i].urlToImage%>" class="card-img-top" alt="<%= news[i].title%>">
                         <div class="card-body">
-                            <h5 class="card-title"><%= news[i].title%></h5>
+                            <h5 class="card-title"><%= news[i].title%></h5><span class="badge badge-primary"><%news[i].author%></span>
                             <p class="card-text"><%= news[i].description%></p>
                             <a target="_blank" href="<%= news[i].url%>" class="btn btn-outline-primary"> Read Article</a>
+                            
                         </div>
                     </div>
             <%}}else{%>
