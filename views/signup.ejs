@@ -4,6 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
+
 </head>
 <body>
     
@@ -13,7 +14,12 @@
 </section>
 
 <div class="alert alert-warning alert-dismissible fade show" role="alert">
-    <strong> You should check in on some of those fields below.</strong>
+    <strong> You should check in on some of those fields below.
+     <li>Name length should be greater than 3 Ex:-abcde</li>
+     <li>email length should be greater than 4 Ex:-abcd@gmail.com</li>
+     <li>Password length should be greater than 6</li>
+      <li>Phone no should be greater than 8</li>
+    </strong>
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
@@ -51,11 +57,42 @@
                     <label for="confirmPassword">Confirm Password</label>
                     <input type="password" class="form-control" id="confirmPassword" required name="confirm_password">
                 </div>
+                <div class="form-group">
+                    <label for="Phoneno">Phone-no</label>
+                  
+                    <input type="tel" name="phoneno" id="Phone-no" class="form-control" required placeholder="Enter your Phone no">
+                </div>
+               
+                <div class="form-group">
+                    <label for="gender" class="">Gender</label><br>
+                    Male<input type="radio" name="gender" id="" value="Male" required>&nbsp;&nbsp;
+                    Female<input type="radio" name="gender" id="" value="Female" required>&nbsp;&nbsp;
+                    Prefer Not To Say <input type="radio" name="gender" id="" value="Not To Say" required>
+
+
+                </div>
+                <div class="form-group">
+                    <label for="married">Married</label>
+                    Yes <input type="radio" name="married" id="" value="Yes" required>
+                    No <input type="radio" name="married" value="No" required>
+                </div>
+                <div class="form-group">
+                    <div class="form-check form-switch">
+                       <label for="">Language</label>&nbsp;
+                      English <input type="radio" name="language" id="" value="English">
+                       
+                      </div>
+
+                </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
           
         </div>
     </div>
 </section>
+
+<script src="/JS/app.js">
+    alert("gunnu")
+</script>
 </body>
 </html>

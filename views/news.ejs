@@ -1,30 +1,13 @@
-<%if(locals.user){%>
-    <form action="/news/search" method="POST" class="d-flex">
-        <input class="form-control me-2" name="query" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-<br>
-
-      <!--Filter button  -->
-    
-  <div class="container-fluid">
-    <span class="badge badge-secondary">Filter</span>
-    <a href="/news/all"class="btn btn-outline-primary">All</a>
-      <a href="/news/International"class="btn btn-outline-secondary">International</a>
-      <a href="/news/Sports"class="btn btn-outline-primary">Sports</a>
-      <a href="/news/Buisness"class="btn btn-outline-primary">Buisness</a>
-      <a href="/news/Technology"class="btn btn-outline-primary">Technology</a>
-  </div>
-  <br>
-<!-- Sort button -->
-<div class="container-fluid">
-  <span class="badge badge-primary">Sort</span>
-  <a href="/news/Popularity"class="btn btn-outline-success">Popular</a>
-    <a href="/news/relevance"class="btn btn-outline-success">Relevance</a>
-   
-</div>
-</div>
-
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%if(locals.user){%>
+       
  <div style="display: flex;flex-wrap: wrap;">
     <% if(news.length>0){
                 for (var i=0 ; i<news.length ; i++){ %>
@@ -50,11 +33,16 @@
 </div>
         <%}%>
     </div>
- <%}else{%>
-    <h1>Please Login</h1>
-    <a href="/sign-in" class="btn btn-outline-primary">Sign-in</a>
-    <a href="/sign-up" class="btn btn-outline-primary">Sign-up</a>
-    
-    
-   <%}%> 
+ 
 
+
+
+    <%}else{%>
+        <h1>Please Login</h1>
+        <a href="/sign-in" class="btn btn-outline-primary">Sign-in</a>
+        <a href="/sign-up" class="btn btn-outline-primary">Sign-up</a>
+        
+        
+       <%}%> 
+</body>
+</html>

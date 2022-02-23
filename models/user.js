@@ -17,6 +17,34 @@ const userSchema=new mongoose.Schema({
         type:String,
         required:true,
     },
+    phoneno:{
+        type:Number,
+        required:true
+
+    },
+    // dob:{
+    //    type:Number,
+    //    required:true,  
+    // },
+    gender:{
+        type:String,
+        required:true
+
+
+    },
+    married:{
+        type:String,
+        required:true,
+
+    },
+    language:{
+      type:String,
+      required:true
+    },
+    sort:{
+    type:String,
+    
+    },
     avatar:{
         type:String,
     }

@@ -1,6 +1,6 @@
 const User=require("../models/user")
 const bcrypt=require("bcrypt")
-const Joi=require('joi')
+const Joi=require('@hapi/joi')
 
 module.exports.home=(req,res)=>{
     return res.render('home',{title:"Home || Upload X"}) 
@@ -14,33 +14,59 @@ exports.signup=(req,res)=>{
 }
 exports.create =function(req, res){
     console.log(req.body)
+
     try{
         const schema=Joi.object({
-            name:Joi.string().min(3).max(15).required()
-        })
+            name:Joi.string().min(3).required(),
+            email:Joi.string().min(4).required().email(),
+            password:Joi.string().min(6).required(),
+            confirm_password:Joi.string().min(6).required(),
+            phoneno:Joi.number().min(8),
+           
+            gender:Joi.string(),
+            married:Joi.string(),
+            language:Joi.string()
+             
 
-        const newUser = new User({
-            name:req.body.name,
-            email: req.body.email,
-            password:req.body.password,
-          });
-          bcrypt.genSalt(10,(err,salt)=>{
-             bcrypt.hash(newUser.password,salt,(err,hash)=>{
-                 if(err) throw err
-                 newUser.password=hash
-                 newUser.save().then(user=>{
-                     req.flash('success',"Registered")
-                     res.redirect('sign-in')
+
+        })
+        const result=schema.validate(req.body)
+        if(result.error){ res.status(400).send(result.error.details[0])
+        }
+        else{
+            const newUser = new User({
+                name:req.body.name,
+                email: req.body.email,
+                password:req.body.password,
+                phoneno:req.body.phoneno,
+                dob:req.body.dob,
+                gender:req.body.gender,
+                married:req.body.married,
+                language:req.body.language,
+
+
+              });
+            
+              bcrypt.genSalt(10,(err,salt)=>{
+                 bcrypt.hash(newUser.password,salt,(err,hash)=>{
+                     if(err) throw err
+                     newUser.password=hash
+                     newUser.save().then(user=>{
+                         req.flash('success',"Registered")
+                         res.redirect('sign-in')
+                     })
                  })
-             })
-          })
-    
+              })
+        
+             
+          }
          
-      }
-     
+        }
+       
       catch(err){
           
-      console.log("error")
+      console.log("error in Signing-up",err)
+      req.flash("Error , Try Again")
   }
       
     

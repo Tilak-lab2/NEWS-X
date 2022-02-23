@@ -6,9 +6,11 @@
     <title></title>
 </head>
 <body>
+    <%if(locals.user){%>
     <section >
-       <h1>Welcome</h1>
+       <h1>Welcome <%=user.name%></h1>
  
     </section>
+    <%}%>
 </body>
 </html>

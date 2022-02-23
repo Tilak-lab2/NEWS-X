@@ -2,7 +2,7 @@
     <nav>
         <div class="mini-logo">
             <p>
-                <a href='/'>
+                <a href='/' class="navbar-brand">
                   Upload X
                 </a>
             </p>
@@ -11,6 +11,9 @@
         <div class="auth-links">
             <ul>
                 <% if (locals.user){ %>
+                    <li class="navbar-item">
+                        <a href="/news/topheadlines"  >TopHeadlines</a>
+                    </li>
                 <li>
                     <a href="/profile/<%=user._id%>"><%= user.name
                          %></a>
@@ -18,6 +21,7 @@
                 <li>
                     <a href="/sign-out">Sign Out</a>
                 </li>
+               
                 <% }else{ %>
                 <li>
                     <a href="/sign-in">Sign In</a>
