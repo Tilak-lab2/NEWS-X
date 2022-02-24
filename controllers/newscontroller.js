@@ -2,7 +2,7 @@ const axios=require('axios')
 module.exports.news=async(req,res)=>{
 try{
 	var data=""
-	var url='https://newsapi.org/v2/top-headlines?country=in&apiKey=86584eae3c3b4f6e899af4d4be08ce4e';
+	var url='https://newsapi.org/v2/top-headlines?country=in&apiKey='+process.env.apiKey;
 var news =await axios.get(url).then((response)=>{
 		console.log(response.status);
 		data=response.data
@@ -15,7 +15,7 @@ res.render('index',{title:"NEWS X ",news:news.articles})
 }
 exports.topHeadlines=async(req,res)=>{
     var data=""
-	var url='https://newsapi.org/v2/top-headlines?country=in&apiKey=86584eae3c3b4f6e899af4d4be08ce4e';
+	var url='https://newsapi.org/v2/top-headlines?country=in&apiKey='+process.env.apiKey;
 var news =await axios.get(url).then((response)=>{
 		console.log(response.status);
 		data=response.data
@@ -28,7 +28,7 @@ var news =await axios.get(url).then((response)=>{
 }
 exports.search=async(req,res)=>{
 	var data='';
-	var url='https://newsapi.org/v2/everything?q='+req.body.query+'&apiKey=86584eae3c3b4f6e899af4d4be08ce4e';
+	var url='https://newsapi.org/v2/everything?q='+req.body.query+'&apiKey='+process.env.apiKey;
 var news =await axios.get(url).then((response)=>{
 		console.log(response.status);
 		data = response.data;
@@ -43,7 +43,7 @@ var news =await axios.get(url).then((response)=>{
 exports.all=async(req,res)=>{
 	try{
 		var data=''
-		var url='https://newsapi.org/v2/everything?q='+req.body.query+'&apiKey=86584eae3c3b4f6e899af4d4be08ce4e';
+		var url='https://newsapi.org/v2/everything?q='+req.body.query+'&apiKey='+process.env.apiKey;
 		var news =await axios.get(url).then((response)=>{
 				console.log(response.status);
 				data = response.data;
@@ -59,7 +59,7 @@ exports.all=async(req,res)=>{
 exports.international=async(req,res)=>{
 	try{
 		var data=""
-		var url='https://newsapi.org/v2/top-headlines?country=us&language=en&apiKey=86584eae3c3b4f6e899af4d4be08ce4e';
+		var url='https://newsapi.org/v2/top-headlines?country=us&language=en&apiKey='+process.env.apiKey;
 		var news =await axios.get(url).then((response)=>{
 				console.log(response.status);
 				data = response.data;
@@ -73,7 +73,7 @@ exports.international=async(req,res)=>{
 }
 exports.sports=async(req,res)=>{
 	try{
-		var url='https://newsapi.org/v2/top-headlines?language=en&category=sports&apiKey=86584eae3c3b4f6e899af4d4be08ce4e';
+		var url='https://newsapi.org/v2/top-headlines?language=en&category=sports&apiKey='+process.env.apiKey;
 		var news =await axios.get(url).then((response)=>{
 				console.log(response.status);
 				data = response.data;
@@ -88,7 +88,7 @@ exports.sports=async(req,res)=>{
 exports.buisness=async(req,res)=>{
 	try{
 		var data=''
-		var url='https://newsapi.org/v2/top-headlines?language=en&category=business&apiKey=86584eae3c3b4f6e899af4d4be08ce4e';
+		var url='https://newsapi.org/v2/top-headlines?language=en&category=business&apiKey='+process.env.apiKey;
 		var news =await axios.get(url).then((response)=>{
 				console.log(response.status);
 				data = response.data;
