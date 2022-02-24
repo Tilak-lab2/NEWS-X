@@ -24,7 +24,7 @@ var news =await axios.get(url).then((response)=>{
 		console.log(err)
 	})
 	// console.log(news);
-	res.render('index',{news:news.articles,title:"Home"});
+	res.render('news',{news:news.articles,title:"Home"});
 }
 exports.search=async(req,res)=>{
 	var data='';
@@ -38,7 +38,7 @@ var news =await axios.get(url).then((response)=>{
 		console.log(err)
 	})
 	// console.log(news);
-	res.render('index',{news:news.articles,title:req.body.query});
+	res.render('news',{news:news.articles,title:req.body.query});
 }
 exports.all=async(req,res)=>{
 	try{

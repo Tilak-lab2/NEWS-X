@@ -41,10 +41,7 @@ const userSchema=new mongoose.Schema({
       type:String,
       required:true
     },
-    sort:{
-    type:String,
     
-    },
     avatar:{
         type:String,
     }
